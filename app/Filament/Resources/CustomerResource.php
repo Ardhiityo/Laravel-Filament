@@ -25,14 +25,17 @@ class CustomerResource extends Resource
         return $form
             ->schema([
                 TextInput::make('name')
-                    ->label('Fullname')
+                    // ->label('Fullname')
                     ->required()
                     ->placeholder('Your fullname...'),
                 TextInput::make('address')
                     ->required(),
                 TextInput::make('phone')
-                    ->numeric()
-                    ->required()
+                    // ->numeric()
+                    ->required(),
+                TextInput::make('customer_code')
+                    ->required(),
+
             ]);
     }
 
@@ -42,7 +45,7 @@ class CustomerResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('name')
-                    ->label('Fullname')
+                    // ->label('Fullname')
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('address')

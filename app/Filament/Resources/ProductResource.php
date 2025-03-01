@@ -16,16 +16,21 @@ use App\Filament\Resources\ProductResource\Pages;
 class ProductResource extends Resource
 {
     protected static ?string $model = Product::class;
-
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationGroup = 'Orders';
+    protected static ?string $navigationIcon = 'heroicon-o-cube';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                TextInput::make('name'),
-                TextInput::make('qty'),
+                TextInput::make('name')
+                    ->required(),
+                TextInput::make('qty')
+                    ->numeric()
+                    ->required(),
                 TextInput::make('price')
+                    ->numeric()
+                    ->required(),
             ]);
     }
 
